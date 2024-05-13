@@ -1,0 +1,13 @@
+C:\Users\ABRAMOVICH\source\repos\BonusPart2048\bin\Debug\netcoreapp3.1\BonusPart2048.exe
+C:\Users\ABRAMOVICH\source\repos\BonusPart2048\bin\Debug\netcoreapp3.1\BonusPart2048.deps.json
+C:\Users\ABRAMOVICH\source\repos\BonusPart2048\bin\Debug\netcoreapp3.1\BonusPart2048.runtimeconfig.json
+C:\Users\ABRAMOVICH\source\repos\BonusPart2048\bin\Debug\netcoreapp3.1\BonusPart2048.runtimeconfig.dev.json
+C:\Users\ABRAMOVICH\source\repos\BonusPart2048\bin\Debug\netcoreapp3.1\BonusPart2048.dll
+C:\Users\ABRAMOVICH\source\repos\BonusPart2048\bin\Debug\netcoreapp3.1\BonusPart2048.pdb
+C:\Users\ABRAMOVICH\source\repos\BonusPart2048\obj\Debug\netcoreapp3.1\BonusPart2048.csprojAssemblyReference.cache
+C:\Users\ABRAMOVICH\source\repos\BonusPart2048\obj\Debug\netcoreapp3.1\BonusPart2048.AssemblyInfoInputs.cache
+C:\Users\ABRAMOVICH\source\repos\BonusPart2048\obj\Debug\netcoreapp3.1\BonusPart2048.AssemblyInfo.cs
+C:\Users\ABRAMOVICH\source\repos\BonusPart2048\obj\Debug\netcoreapp3.1\BonusPart2048.csproj.CoreCompileInputs.cache
+C:\Users\ABRAMOVICH\source\repos\BonusPart2048\obj\Debug\netcoreapp3.1\BonusPart2048.dll
+C:\Users\ABRAMOVICH\source\repos\BonusPart2048\obj\Debug\netcoreapp3.1\BonusPart2048.pdb
+C:\Users\ABRAMOVICH\source\repos\BonusPart2048\obj\Debug\netcoreapp3.1\BonusPart2048.genruntimeconfig.cache
