@@ -7,19 +7,19 @@ namespace BonusPart2048
     class Game
     {
         public Board Board2048;
-        public Program.GameStatus TheGameStatus;
+        public GameStatus TheGameStatus;
         public int Points { get; protected set; }
 
         public Game()
         {
             Board2048 = new Board();
-            TheGameStatus = Program.GameStatus.Idle;
+            TheGameStatus = GameStatus.Idle;
             Points = 0;
         }
 
-        public void Move(Program.Direction moveInDirection)
+        public void Move(Direction moveInDirection)
         {
-            if (TheGameStatus.Equals(Program.GameStatus.Lose))
+            if (TheGameStatus.Equals(GameStatus.Lose))
             {
                 return;
             }
@@ -27,7 +27,7 @@ namespace BonusPart2048
             TheGameStatus = CheckGameStatus();
         }
 
-        public Program.GameStatus CheckGameStatus()
+        public GameStatus CheckGameStatus()
         {
             for(int i = 0; i < Board2048.Data.GetLength(0); i++)
             {
@@ -35,7 +35,7 @@ namespace BonusPart2048
                 {
                     if (Board2048.Data[i, j] == 2048)
                     { 
-                        return Program.GameStatus.Win;
+                        return GameStatus.Win;
                     }
                 }
             } // עברנו על כל התאים, אם יש 2048- ניצח.
@@ -45,14 +45,14 @@ namespace BonusPart2048
                 {
                     if (Board2048.Data[i, j] == 0)
                     {
-                        return Program.GameStatus.Idle;
+                        return GameStatus.Idle;
                     }
                 }
             } // עברנו על כל התאים, אם אחד מהם ריק אז הוא לא הפסיד ולא ניצח
             if (CheckIfLost())
-                return Program.GameStatus.Idle;
+                return GameStatus.Idle;
             // עברנו על כל התאים במידה ואף אחד מהם לא ריק- נבדוק אם אפשר להמשיך למזג
-            return Program.GameStatus.Lose;
+            return GameStatus.Lose;
         }
 
         private bool CheckIfLost()// מחזיר אמת אם עוד אפשר להמשיך למזג ושקר אם לא

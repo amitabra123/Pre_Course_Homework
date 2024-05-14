@@ -32,18 +32,18 @@ namespace BonusPart2048
             Data[secondRandomRow, secondRandomColumn] = 4;
         }
 
-        public int Move(Program.Direction moveInDirection)
+        public int Move(Direction moveInDirection)
         {
             int points = 0;
-            if (moveInDirection.Equals(Program.Direction.Left))
+            if (moveInDirection.Equals(Direction.Left))
             {
                 points = MoveLeft();
             }
-            else if (moveInDirection.Equals(Program.Direction.Right))
+            else if (moveInDirection.Equals(Direction.Right))
             {
                 points = MoveRight();
             }
-            else if (moveInDirection.Equals(Program.Direction.Up))
+            else if (moveInDirection.Equals(Direction.Up))
             {
                points = MoveUp();
             }
