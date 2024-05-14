@@ -20,21 +20,51 @@ namespace BonusPart2048
             Lose, //1
             Idle  //2
         }
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ConsoleGame consoleGameBoard2048 = new ConsoleGame();
+            consoleGameBoard2048.StartAGame();
+
+
+            /*            Console.WriteLine("Hello World!");
+                        Game game2048 = new Game();
+                        game2048.Board2048.Put2Or4InTwoRandomCells();
+                        game2048.Board2048.PrintBoard();
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+                        game2048.Move(Direction.Down);
+                        Console.WriteLine("points: " + game2048.Points);
+                        game2048.Board2048.PrintBoard();
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+                        game2048.Move(Direction.Left);
+                        Console.WriteLine("points: " + game2048.Points);
+                        game2048.Board2048.PrintBoard();
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+                        game2048.Move(Direction.Up);
+                        Console.WriteLine("points: " + game2048.Points);
+                        game2048.Board2048.PrintBoard();
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+                        game2048.Move(Direction.Right);
+                        Console.WriteLine("points: " + game2048.Points);
+                        game2048.Board2048.PrintBoard();*/
+
+
+
+            /*
             Board board2048 = new Board();
             board2048.Put2Or4InTwoRandomCells();
             board2048.PrintBoard();
             Console.WriteLine("");
             Console.WriteLine("");
-            Console.WriteLine("points: "+ board2048.Move(Direction.Left));
+
+            Console.WriteLine("points: " + board2048.Move(Direction.Left));
             board2048.PrintBoard();
 
             Console.WriteLine("points: " + board2048.Move(Direction.Up));
-            board2048.PrintBoard();
-
-            Console.WriteLine("points: " + board2048.Move(Direction.Down));
             board2048.PrintBoard();
 
             Console.WriteLine("points: " + board2048.Move(Direction.Right));
@@ -42,6 +72,15 @@ namespace BonusPart2048
 
             Console.WriteLine("points: " + board2048.Move(Direction.Left));
             board2048.PrintBoard();
+
+            Console.WriteLine("points: " + board2048.Move(Direction.Down));
+            board2048.PrintBoard();
+
+            Console.WriteLine("points: " + board2048.Move(Direction.Up));
+            board2048.PrintBoard();
+
+            Console.WriteLine("points: " + board2048.Move(Direction.Left));
+            board2048.PrintBoard();*/
         }
     }
 }

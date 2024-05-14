@@ -51,12 +51,15 @@ namespace BonusPart2048
             {
                points = MoveDown();
             }
-            AddNew2Or4InRandomCell();
+            AddNew2Or4InARandomCell();
             return points;
         }
 
         private int MoveLeft()
         {
+            bool[,] hasMerged = new bool[Data.GetLength(0), Data.GetLength(1)];
+            // מטריצה של שקר- אם תא עבר מיזוג בתור הנוכחי יהפוך לאמת
+            //bool hasMerged = false;
             int points = 0;
             for(int moveTheCells = 0; moveTheCells < Data.GetLength(0); moveTheCells++)
             {
@@ -71,15 +74,23 @@ namespace BonusPart2048
                         }
                         else if (Data[i, j] == Data[i, j + 1] && j < Data.GetLength(1) - 2)
                         {
-                            Data[i, j] *= 2;
-                            Data[i, j + 1] = Data[i, j + 2];
-                            points += Data[i, j] * 2;
+                            if (hasMerged[i, j] == false)
+                            {
+                                Data[i, j] *= 2;
+                                Data[i, j + 1] = Data[i, j + 2];
+                                points += Data[i, j];
+                                hasMerged[i, j] = true;
+                            }
                         }
                         else if (Data[i, j] == Data[i, j + 1] && j == Data.GetLength(1) - 2)
                         {
-                            Data[i, j] *= 2;
-                            Data[i, j + 1] = 0;
-                            points += Data[i, j] * 2;
+                            if (hasMerged[i, j] == false)
+                            {
+                                Data[i, j] *= 2;
+                                Data[i, j + 1] = 0;
+                                points += Data[i, j];
+                                hasMerged[i, j] = true;
+                            }
                         }
                         else if (j > 0)
                         {
@@ -97,6 +108,7 @@ namespace BonusPart2048
 
         private int MoveRight()
         {
+            bool[,] hasMerged = new bool[Data.GetLength(0), Data.GetLength(1)];
             int points = 0;
             for (int moveTheCells = 0; moveTheCells < Data.GetLength(0); moveTheCells++)
             {
@@ -111,15 +123,24 @@ namespace BonusPart2048
                         }
                         else if (Data[i, j] == Data[i, j - 1] && j > 1)
                         {
-                            Data[i, j] *= 2;
-                            Data[i, j - 1] = Data[i, j - 2];
-                            points = Data[i, j];
+                            if (hasMerged[i, j] == false)
+                            {
+                                Data[i, j] *= 2;
+                                Data[i, j - 1] = Data[i, j - 2];
+                                points += Data[i, j];
+                                hasMerged[i, j] = true;
+                            }
                         }
                         else if (Data[i, j] == Data[i, j - 1] && j == 1)
                         {
-                            Data[i, j] *= 2;
-                            Data[i, j - 1] = 0;
-                            points = Data[i, j];
+                            if (hasMerged[i, j] == false)
+                            {
+                                Data[i, j] *= 2;
+                                Data[i, j - 1] = 0;
+                                points += Data[i, j];
+                                hasMerged[i, j] = true;
+                            }
+                           
                         }
                         else if (j < Data.GetLength(1)-1)
                         {
@@ -136,6 +157,7 @@ namespace BonusPart2048
         }
         private int MoveUp()
         {
+            bool[,] hasMerged = new bool[Data.GetLength(0), Data.GetLength(1)];
             int points = 0;
             for (int moveTheCells = 0; moveTheCells < Data.GetLength(0); moveTheCells++)
             {
@@ -150,15 +172,23 @@ namespace BonusPart2048
                         }
                         else if (Data[i, j] == Data[i+1, j] && i < Data.GetLength(0) - 2) 
                         {
-                            Data[i, j] *= 2;
-                            Data[i+1, j] = Data[i+2, j];
-                            points = Data[i, j];
+                            if (hasMerged[i, j] == false)
+                            {
+                                Data[i, j] *= 2;
+                                Data[i + 1, j] = Data[i + 2, j];
+                                points += Data[i, j];
+                                hasMerged[i, j] = true;
+                            }
                         }
                         else if (Data[i, j] == Data[i+1, j] && i == Data.GetLength(0) - 2)
                         {
-                            Data[i, j] *= 2;
-                            Data[i+1, j] = 0;
-                            points = Data[i, j];
+                            if (hasMerged[i, j] == false)
+                            {
+                                Data[i, j] *= 2;
+                                Data[i + 1, j] = 0;
+                                points += Data[i, j];
+                                hasMerged[i, j] = true;
+                            }
                         }
                         else if (i > 0)
                         {
@@ -175,6 +205,7 @@ namespace BonusPart2048
         }
         private int MoveDown()
         {
+            bool[,] hasMerged = new bool[Data.GetLength(0), Data.GetLength(1)];
             int points = 0;
             for (int moveTheCells = 0; moveTheCells < Data.GetLength(0); moveTheCells++)
             {
@@ -189,15 +220,23 @@ namespace BonusPart2048
                         }
                         else if (Data[i, j] == Data[i-1, j] && i > 1)
                         {
-                            Data[i, j] *= 2;
-                            Data[i-1, j] = Data[i-2, j];
-                            points = Data[i, j];
+                            if (hasMerged[i, j] == false)
+                            {
+                                Data[i, j] *= 2;
+                                Data[i - 1, j] = Data[i - 2, j];
+                                points += Data[i, j];
+                                hasMerged[i, j] = true;
+                            }
                         }
                         else if (Data[i, j] == Data[i-1, j] && i == 1)
                         {
-                            Data[i, j] *= 2;
-                            Data[i-1, j] = 0;
-                            points = Data[i, j];
+                            if (hasMerged[i, j]==false)
+                            {
+                                Data[i, j] *= 2;
+                                Data[i - 1, j] = 0;
+                                points += Data[i, j];
+                                hasMerged[i, j] = true;
+                            }
                         }
                         else if (i < Data.GetLength(0) - 1)
                         {
@@ -212,7 +251,7 @@ namespace BonusPart2048
             }
             return points;
         }
-        private void AddNew2Or4InRandomCell()
+        private void AddNew2Or4InARandomCell()
         {
             Random findRandomCell = new Random();
             int randomRow = findRandomCell.Next(4);
@@ -236,6 +275,7 @@ namespace BonusPart2048
                 }
             }
         }
+
 
         // למחוק את  הפונקציה הזו בסוף!!
         public void PrintBoard()
