@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BonusPart2048
 {
@@ -38,7 +36,7 @@ namespace BonusPart2048
                         return GameStatus.Win;
                     }
                 }
-            } // עברנו על כל התאים, אם יש 2048- ניצח.
+            } 
             for (int i = 0; i < Board2048.Data.GetLength(0); i++)
             {
                 for (int j = 0; j < Board2048.Data.GetLength(1); j++)
@@ -48,32 +46,25 @@ namespace BonusPart2048
                         return GameStatus.Idle;
                     }
                 }
-            } // עברנו על כל התאים, אם אחד מהם ריק אז הוא לא הפסיד ולא ניצח
+            } 
             if (CheckIfLost())
                 return GameStatus.Idle;
-            // עברנו על כל התאים במידה ואף אחד מהם לא ריק- נבדוק אם אפשר להמשיך למזג
             return GameStatus.Lose;
         }
 
-        private bool CheckIfLost()// מחזיר אמת אם עוד אפשר להמשיך למזג ושקר אם לא
+        private bool CheckIfLost()
         {
-            for (int i = 1; i < Board2048.Data.GetLength(0) - 1; i++)
+            for (int i = 0; i < Board2048.Data.GetLength(0); i++)
             {
                 for(int j = 0; j < Board2048.Data.GetLength(1); j++)
                 {
-                    if (Board2048.Data[i, j] == Board2048.Data[i + 1, j])
+                    if (i < Board2048.Data.GetLength(0) - 1 && Board2048.Data[i, j] == Board2048.Data[i + 1, j])
                         return true;
-                    if (Board2048.Data[i, j] == Board2048.Data[i - 1, j])
+                    if (i > 0 && Board2048.Data[i, j] == Board2048.Data[i - 1, j])
                         return true;
-                }
-            }
-            for (int i = 0; i < Board2048.Data.GetLength(0); i++)
-            {
-                for (int j = 1; j < Board2048.Data.GetLength(1)-1; j++)
-                {
-                    if (Board2048.Data[i, j] == Board2048.Data[i, j+1])
+                    if (j < Board2048.Data.GetLength(1) - 1 && Board2048.Data[i, j] == Board2048.Data[i, j + 1])
                         return true;
-                    if (Board2048.Data[i, j] == Board2048.Data[i, j-1])
+                    if(j>0 && Board2048.Data[i, j] == Board2048.Data[i, j - 1])
                         return true;
                 }
             }

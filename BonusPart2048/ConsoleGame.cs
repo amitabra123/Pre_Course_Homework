@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace BonusPart2048
 {
@@ -13,21 +12,24 @@ namespace BonusPart2048
             game2048 = new Game();
         }
         public void StartAGame()
-        {// פה נעשה משחק שלם
-            game2048.Board2048.Put2Or4InTwoRandomCells(); // התחלנו בלשים 2 או 4 בשני תאים רנדומליים..
-            while(game2048.TheGameStatus == GameStatus.Idle && !userChoseToExit) // כל עוד אפשר להמשיך לשחק
+        {
+            game2048.Board2048.Put2Or4InTwoRandomCells(); 
+            while(game2048.TheGameStatus == GameStatus.Idle && !userChoseToExit) 
             {
+                Console.Clear();
                 ShowGameBoard();
                 UserChooseDirection();
             }
             if(game2048.TheGameStatus == GameStatus.Lose)
             {
+                ShowGameBoard();
                 Console.WriteLine("Sorry you lost!");
                 Console.WriteLine("Bye Bye");
                 return;
             }    
-            else if(!userChoseToExit)// רק אם הוא לא בחר לצאת והגענו לכאן
+            else if(!userChoseToExit)
             {
+                ShowGameBoard();
                 Console.WriteLine("Wow!! you won (2048!)");
                 Console.WriteLine("Bye Bye");
                 return;
@@ -40,7 +42,7 @@ namespace BonusPart2048
             {
                 for (int j = 0; j < game2048.Board2048.Data.GetLength(1); j++)
                 {
-                    Console.Write(game2048.Board2048.Data[i, j]);
+                    Console.Write(game2048.Board2048.Data[i, j] + " ");
                 }
                 Console.WriteLine("");
             }
@@ -68,34 +70,31 @@ namespace BonusPart2048
             MoveAccordingToDirection(userChooseDirection);
         }
 
+
         private void MoveAccordingToDirection(ConsoleKey userChooseDirection)
         {
             if (userChooseDirection == ConsoleKey.UpArrow)
             {
                 Console.WriteLine("UP");
-                game2048.Move(Direction.Up); // זה מחזיר את הנקודות- לעשות עם זה משהו
-                ShowGameBoard();
+                game2048.Move(Direction.Up);
                 Console.WriteLine("points: " + game2048.Points);
             }
             else if (userChooseDirection == ConsoleKey.DownArrow)
             {
                 Console.WriteLine("DOWN");
                 game2048.Move(Direction.Down);
-                ShowGameBoard();
                 Console.WriteLine("points: " + game2048.Points);
             }
             else if (userChooseDirection == ConsoleKey.RightArrow)
             {
                 Console.WriteLine("RIGHT");
                 game2048.Move(Direction.Right);
-                ShowGameBoard();
                 Console.WriteLine("points: " + game2048.Points);
             }
             else if (userChooseDirection == ConsoleKey.LeftArrow)
             {
                 Console.WriteLine("LEFT");
                 game2048.Move(Direction.Left);
-                ShowGameBoard();
                 Console.WriteLine("points: " + game2048.Points);
             }
         }
